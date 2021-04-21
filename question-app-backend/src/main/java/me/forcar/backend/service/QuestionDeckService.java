@@ -1,8 +1,7 @@
 package me.forcar.backend.service;
 
-import me.forcar.backend.dto.QuestionDeckDTO;
-import me.forcar.backend.dto.QuestionDeckSummaryDTO;
-import me.forcar.backend.jpa.po.question.QuestionDeckAttributePO;
+import me.forcar.backend.dto.question.QuestionDeckDTO;
+import me.forcar.backend.dto.question.QuestionDeckSummaryDTO;
 import me.forcar.backend.jpa.po.question.QuestionDeckPO;
 import me.forcar.backend.jpa.repository.question.QuestionDeckPORepository;
 import org.hibernate.Hibernate;
@@ -12,7 +11,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.UUID;
 
 @Service

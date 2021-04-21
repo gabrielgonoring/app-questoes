@@ -1,14 +1,13 @@
-package me.forcar.backend.dto;
+package me.forcar.backend.dto.question;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
-public class QuestionDeckDTO {
+public class QuestionDeckSummaryDTO {
     private UUID id;
     private String name;
     private LocalDateTime creationDate;
-    private List<QuestionDeckAttributeDTO> attributes;
 
     public UUID getId() {
         return id;
@@ -32,15 +31,6 @@ public class QuestionDeckDTO {
 
     public void setCreationDate(LocalDateTime creationDate) {
         this.creationDate = creationDate;
-    }
-
-
-    public List<QuestionDeckAttributeDTO> getAttributes() {
-        return attributes;
-    }
-
-    public void setAttributes(List<QuestionDeckAttributeDTO> attributes) {
-        this.attributes = attributes;
     }
 
 }

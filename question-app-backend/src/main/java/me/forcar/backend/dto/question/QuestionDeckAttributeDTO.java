@@ -1,4 +1,4 @@
-package me.forcar.backend.dto;
+package me.forcar.backend.dto.question;
 
 import java.util.UUID;
 

@@ -1,7 +1,7 @@
 package me.forcar.backend.controller;
 
-import me.forcar.backend.dto.QuestionDeckDTO;
-import me.forcar.backend.dto.QuestionDeckSummaryDTO;
+import me.forcar.backend.dto.question.QuestionDeckDTO;
+import me.forcar.backend.dto.question.QuestionDeckSummaryDTO;
 import me.forcar.backend.service.QuestionDeckService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
