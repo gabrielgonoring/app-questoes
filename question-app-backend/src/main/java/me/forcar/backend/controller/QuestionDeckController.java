@@ -16,6 +16,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/question/deck")
+//@Validated this annotation makes the getDecks method crash
 public class QuestionDeckController {
 
     @Autowired
@@ -27,7 +28,7 @@ public class QuestionDeckController {
     }
 
     @GetMapping("/{idQuestionDeck}")
-    public QuestionDeckDTO getDeckById(@PathVariable @NotNull UUID idQuestionDeck){
+    public QuestionDeckDTO getDeckById(@PathVariable UUID idQuestionDeck){
         return questionDeckService.getDeckById(idQuestionDeck);
     }
 }

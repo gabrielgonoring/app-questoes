@@ -4,6 +4,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -31,6 +32,9 @@ public class QuestionDeckPO {
     @Column(name = "creation_date", nullable = false)
     private LocalDateTime creationDate;
 
+    @OneToMany(mappedBy = "questionDeck", fetch = FetchType.LAZY)
+    private List<QuestionDeckAttributePO> attributes;
+
     public UUID getId() {
         return id;
     }
@@ -53,5 +57,13 @@ public class QuestionDeckPO {
 
     public void setCreationDate(LocalDateTime creationDate) {
         this.creationDate = creationDate;
+    }
+
+    public List<QuestionDeckAttributePO> getAttributes() {
+        return attributes;
+    }
+
+    public void setAttributes(List<QuestionDeckAttributePO> attributes) {
+        this.attributes = attributes;
     }
 }
