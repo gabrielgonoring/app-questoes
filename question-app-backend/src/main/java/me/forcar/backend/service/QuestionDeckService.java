@@ -35,7 +35,6 @@ public class QuestionDeckService {
 
     public QuestionDeckDTO getDeckById(UUID id){
         var questionDeckPO = questionDeckPORepository.findFetchAttributesById(id);
-        questionDeckPO.getAttributes();
         return modelMapper.map(questionDeckPO, QuestionDeckDTO.class);
     }
 }
