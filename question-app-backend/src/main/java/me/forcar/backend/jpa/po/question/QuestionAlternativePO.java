@@ -1,6 +1,7 @@
 package me.forcar.backend.jpa.po.question;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.UUID;
@@ -28,6 +29,7 @@ public class QuestionAlternativePO {
     private String alternativeSymbol;
 
     @Lob
+    @Type(type = "org.hibernate.type.TextType")
     @Column(name = "content", nullable = false)
     private String content;
 

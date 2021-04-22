@@ -1,6 +1,7 @@
 package me.forcar.backend.jpa.po.question;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -39,6 +40,7 @@ public class QuestionPO {
     private QuestionDeckPO questionDeck;
 
     @Lob
+    @Type(type = "org.hibernate.type.TextType")
     @Column(name = "content", nullable = false)
     private String content;
 
@@ -91,5 +93,13 @@ public class QuestionPO {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public List<QuestionAlternativePO> getAlternatives() {
+        return alternatives;
+    }
+
+    public void setAlternatives(List<QuestionAlternativePO> alternatives) {
+        this.alternatives = alternatives;
     }
 }
