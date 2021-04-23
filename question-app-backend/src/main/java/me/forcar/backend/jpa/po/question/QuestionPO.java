@@ -27,7 +27,7 @@ public class QuestionPO {
     private UUID id;
 
     @Column(name = "question_number")
-    private String questionNumber;
+    private Integer questionNumber;
 
     @Column(name = "correct_alternative_symbol")
     private String correctAlternativeSymbol;
@@ -55,11 +55,11 @@ public class QuestionPO {
         this.id = id;
     }
 
-    public String getQuestionNumber() {
+    public Integer getQuestionNumber() {
         return questionNumber;
     }
 
-    public void setQuestionNumber(String questionNumber) {
+    public void setQuestionNumber(Integer questionNumber) {
         this.questionNumber = questionNumber;
     }
 

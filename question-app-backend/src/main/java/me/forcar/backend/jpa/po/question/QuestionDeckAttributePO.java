@@ -25,7 +25,7 @@ public class QuestionDeckAttributePO {
     private UUID id;
 
     @Column(name = "description")
-    private String descrioption;
+    private String description;
 
     @Column(name = "value")
     private String value;
@@ -42,12 +42,12 @@ public class QuestionDeckAttributePO {
         this.id = id;
     }
 
-    public String getDescrioption() {
-        return descrioption;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescrioption(String descrioption) {
-        this.descrioption = descrioption;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getValue() {

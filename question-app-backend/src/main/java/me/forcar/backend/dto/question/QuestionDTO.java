@@ -8,7 +8,7 @@ public class QuestionDTO {
 
     private UUID id;
 
-    private String questionNumber;
+    private Integer questionNumber;
 
     private String correctAlternativeSymbol;
 
@@ -30,11 +30,11 @@ public class QuestionDTO {
         this.id = id;
     }
 
-    public String getQuestionNumber() {
+    public Integer getQuestionNumber() {
         return questionNumber;
     }
 
-    public void setQuestionNumber(String questionNumber) {
+    public void setQuestionNumber(Integer questionNumber) {
         this.questionNumber = questionNumber;
     }
 
