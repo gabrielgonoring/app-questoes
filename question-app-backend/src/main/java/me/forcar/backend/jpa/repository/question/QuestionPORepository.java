@@ -16,4 +16,10 @@ public interface QuestionPORepository extends JpaRepository<QuestionPO, UUID> {
     //SELECT DISTINCT q FROM QuestionPO q JOIN FETCH q.questionDeck a WHERE q.questionDeck.id = ?1
     @Query("SELECT q FROM QuestionPO q JOIN FETCH q.questionDeck JOIN FETCH q.alternatives a WHERE q.id = ?1")
     QuestionPO findFetchById(UUID idQuestion);
+
+    @Query
+    QuestionPO findFirstByQuestionDeckIdAndQuestionNumberGreaterThanOrderByQuestionNumberAsc(UUID questionDeckId, Integer questionNumber);
+
+    @Query
+    QuestionPO findFirstByQuestionDeckIdAndQuestionNumberLessThanOrderByQuestionNumberDesc(UUID questionDeckId, Integer questionNumber);
 }

@@ -14,11 +14,15 @@ public class QuestionDTO {
 
     private LocalDateTime creationDate;
 
-    private String questionDeckId;
+    private UUID questionDeckId;
 
     private String questionDeckName;
 
     private String content;
+
+    private UUID nextQuestionId;
+
+    private UUID previousQuestionId;
 
     private List<QuestionAlternativeDTO> alternatives;
 
@@ -54,11 +58,11 @@ public class QuestionDTO {
         this.creationDate = creationDate;
     }
 
-    public String getQuestionDeckId() {
+    public UUID getQuestionDeckId() {
         return questionDeckId;
     }
 
-    public void setQuestionDeckId(String questionDeckId) {
+    public void setQuestionDeckId(UUID questionDeckId) {
         this.questionDeckId = questionDeckId;
     }
 
@@ -76,6 +80,22 @@ public class QuestionDTO {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public UUID getNextQuestionId() {
+        return nextQuestionId;
+    }
+
+    public void setNextQuestionId(UUID nextQuestionId) {
+        this.nextQuestionId = nextQuestionId;
+    }
+
+    public UUID getPreviousQuestionId() {
+        return previousQuestionId;
+    }
+
+    public void setPreviousQuestionId(UUID previousQuestionId) {
+        this.previousQuestionId = previousQuestionId;
     }
 
     public List<QuestionAlternativeDTO> getAlternatives() {

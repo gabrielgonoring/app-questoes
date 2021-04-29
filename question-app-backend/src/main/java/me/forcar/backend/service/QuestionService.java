@@ -11,6 +11,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -34,8 +35,23 @@ public class QuestionService {
     }
 
     public QuestionDTO getQuestionById(UUID questionID){
-        var questionPO = questionPORepository.findFetchById(questionID);
+        QuestionPO questionPO = questionPORepository.findFetchById(questionID);
 
-        return modelMapper.map(questionPO, QuestionDTO.class);
+        QuestionDTO questionDTO = modelMapper.map(questionPO, QuestionDTO.class);
+
+        questionDTO.setNextQuestionId(
+                Optional.ofNullable(questionPORepository.findFirstByQuestionDeckIdAndQuestionNumberGreaterThanOrderByQuestionNumberAsc(questionDTO.getQuestionDeckId(), questionDTO.getQuestionNumber()))
+                        .orElse(new QuestionPO())
+                        .getId()
+        );
+
+        questionDTO.setPreviousQuestionId(
+                Optional.ofNullable(questionPORepository.findFirstByQuestionDeckIdAndQuestionNumberLessThanOrderByQuestionNumberDesc(questionDTO.getQuestionDeckId(), questionDTO.getQuestionNumber()))
+                        .orElse(new QuestionPO())
+                        .getId()
+        );
+
+
+        return questionDTO;
     }
 }
