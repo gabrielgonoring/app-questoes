@@ -172,6 +172,9 @@ public class QuestionPORepositoryTest {
         em.detach(questionPORecoveredByFetch);//this is for lazy loading does not work
 
         Assertions.assertNotNull(questionPORecoveredByFetch);
-        Assertions.assertEquals(3, Assertions.assertDoesNotThrow(()-> questionPORecoveredByFetch.getAlternatives().size()));
+        Assertions.assertEquals(
+                3,
+                Assertions.assertDoesNotThrow(()-> questionPORecoveredByFetch.getAlternatives().size())
+        );
     }
 }

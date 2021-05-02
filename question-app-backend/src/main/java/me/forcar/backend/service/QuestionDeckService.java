@@ -16,11 +16,15 @@ import java.util.UUID;
 @Service
 public class QuestionDeckService {
 
-    @Autowired
     private QuestionDeckPORepository questionDeckPORepository;
 
-    @Autowired
     private ModelMapper modelMapper;
+
+    @Autowired
+    public QuestionDeckService(QuestionDeckPORepository questionDeckPORepository, ModelMapper modelMapper) {
+        this.questionDeckPORepository = questionDeckPORepository;
+        this.modelMapper = modelMapper;
+    }
 
     public Page<QuestionDeckSummaryDTO> getDecks(Pageable pageable){
         return questionDeckPORepository
