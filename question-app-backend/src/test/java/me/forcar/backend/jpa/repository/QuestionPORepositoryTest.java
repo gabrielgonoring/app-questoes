@@ -5,6 +5,7 @@ import me.forcar.backend.jpa.po.question.QuestionDeckPO;
 import me.forcar.backend.jpa.po.question.QuestionPO;
 import me.forcar.backend.jpa.repository.question.QuestionAlternativePORepository;
 import me.forcar.backend.jpa.repository.question.QuestionPORepository;
+import org.hibernate.LazyInitializationException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -158,5 +159,19 @@ public class QuestionPORepositoryTest {
         Assertions.assertNotNull(questionPOPage);
         Assertions.assertEquals(3L, questionPOPage.getTotalElements());
     }
-    
+
+    @Test
+    public void shouldRecoverThreeQuestionAlternatives(){
+        QuestionPO questionPO = createThreeQuestions().get(0);
+
+        em.flush();//syncing all sql command with database
+        em.clear();//removing all entitys from the context, now the next selection commands will be made in the database
+
+        QuestionPO questionPORecoveredByFetch = questionPORepository.findFetchById(questionPO.getId());
+
+        em.detach(questionPORecoveredByFetch);//this is for lazy loading does not work
+
+        Assertions.assertNotNull(questionPORecoveredByFetch);
+        Assertions.assertEquals(3, Assertions.assertDoesNotThrow(()-> questionPORecoveredByFetch.getAlternatives().size()));
+    }
 }
