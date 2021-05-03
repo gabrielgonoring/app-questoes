@@ -52,7 +52,7 @@ public class QuestionDeckPORepositoryTest {
     }
 
     @Test
-    void shouldRecoverADeckWithItsAttributes() {
+    public void shouldRecoverADeckWithItsAttributes() {
         QuestionDeckPO questionDeckPO = createQuestionDeck();
         var deckAttributeList = createTwoQuestionDeckAttributes(questionDeckPO);
 

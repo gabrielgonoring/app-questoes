@@ -13,11 +13,11 @@ public class QuestionSummaryDTO {
 
     private UUID id;
 
-    private String questionNumber;
+    private Integer questionNumber;
 
     private LocalDateTime creationDate;
 
-    private String questionDeckId;
+    private UUID questionDeckId;
 
     private String questionDeckName;
 
@@ -31,11 +31,11 @@ public class QuestionSummaryDTO {
         this.id = id;
     }
 
-    public String getQuestionNumber() {
+    public Integer getQuestionNumber() {
         return questionNumber;
     }
 
-    public void setQuestionNumber(String questionNumber) {
+    public void setQuestionNumber(Integer questionNumber) {
         this.questionNumber = questionNumber;
     }
 
@@ -47,11 +47,11 @@ public class QuestionSummaryDTO {
         this.creationDate = creationDate;
     }
 
-    public String getQuestionDeckId() {
+    public UUID getQuestionDeckId() {
         return questionDeckId;
     }
 
-    public void setQuestionDeckId(String questionDeckId) {
+    public void setQuestionDeckId(UUID questionDeckId) {
         this.questionDeckId = questionDeckId;
     }
 

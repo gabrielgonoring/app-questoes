@@ -5,6 +5,7 @@ import me.forcar.backend.dto.question.QuestionDeckSummaryDTO;
 import me.forcar.backend.jpa.po.question.QuestionDeckAttributePO;
 import me.forcar.backend.jpa.po.question.QuestionDeckPO;
 import me.forcar.backend.jpa.repository.question.QuestionDeckPORepository;
+import me.forcar.backend.utils.Utils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -36,15 +37,7 @@ public class QuestionDeckServiceTest {
     }
 
     private Page<QuestionDeckPO> createQuestionDeckPageWithThreeElements(Pageable pageable){
-        return toPage(createThreeQuestionDeck(), pageable);
-    }
-
-    private <T> Page<T> toPage(List<T> list, Pageable pageable) {
-        int start = (int) pageable.getOffset();
-        int end = Math.min((start + pageable.getPageSize()), list.size());
-        if(start > list.size())
-            return new PageImpl<>(new ArrayList<>(), pageable, list.size());
-        return new PageImpl<>(list.subList(start, end), pageable, list.size());
+        return Utils.toPage(createThreeQuestionDeck(), pageable);
     }
 
     private List<QuestionDeckPO> createThreeQuestionDeck(){
