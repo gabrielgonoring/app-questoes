@@ -1,5 +1,6 @@
 package me.forcar.backend.controller;
 
+import io.swagger.annotations.ApiOperation;
 import me.forcar.backend.dto.question.QuestionDTO;
 import me.forcar.backend.dto.question.QuestionSummaryDTO;
 import me.forcar.backend.service.QuestionService;
@@ -20,11 +21,13 @@ public class QuestionController {
     private QuestionService questionService;
 
     @GetMapping("/list/by/deck/{idDeck}")
+    @ApiOperation("Return a list of Question by Deck id")
     public ResponseEntity<Page<QuestionSummaryDTO>> getQuestionsByIdDeck(Pageable pageable, @PathVariable UUID idDeck){
         return ResponseEntity.ok(questionService.getQuestionByIdDeck(pageable, idDeck));
     }
 
     @GetMapping("/{idQuestion}")
+    @ApiOperation("Return a Question by id")
     private ResponseEntity<QuestionDTO> getById(@PathVariable UUID idQuestion){
         return ResponseEntity.ok(questionService.getQuestionById(idQuestion));
     }
